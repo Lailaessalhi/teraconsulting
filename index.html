@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>TERA Consulting - Consulting Marketing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fa;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.8rem;
+    }
+    .contact-info div {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      flex: 1 1 200px;
+    }
+    .contact-info strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    .form-container {
+      background: #fff;
+      padding: 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    button[type="submit"] {
+      background: #2c3e50;
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #1a2530;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1.5rem 1rem;
+      background: #2c3e50;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+  <!-- Ici tu peux ajouter un script pour envoyer le formulaire en PHP, JS, etc. -->
+</head>
+<body>
+  <header>
+    <h1>TERA Consulting</h1>
+    <p>Consulting marketing pour PME & start-ups</p>
+    <nav>
+      <a href="#apropos">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.teraconsulting.ma/login">Espace client</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="apropos" class="section">
+      <h2>À propos de TERA Consulting</h2>
+      <p>
+        TERA Consulting est un cabinet de <strong>consulting marketing</strong> spécialisé dans l’accompagnement des PME et start-ups marocaines et internationales. Nous aidons nos clients à développer des stratégies marketing efficaces, à renforcer leur visibilité digitale et à optimiser leur communication pour atteindre leurs objectifs commerciaux.
+      </p>
+      <p>
+        Notre objectif : vous offrir des solutions sur mesure, claires et concrètes, pour transformer vos idées en résultats mesurables.
+      </p>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Nos services</h2>
+      <ul>
+        <li><strong>Stratégie marketing et plan d’action</strong></li>
+        <li><strong>Marketing digital</strong> (SEO, réseaux sociaux, publicité en ligne)</li>
+        <li><strong>Analyse de marché et études de faisabilité</strong></li>
+        <li><strong>Branding et positionnement de marque</strong></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contactez TERA Consulting</h2>
+
+      <div class="contact-info">
+        <div>
+          <strong>Adresse e‑mail</strong>
+          <p>contact@teraconsulting.ma</p>
+        </div>
+        <div>
+          <strong>Téléphone (Maroc)</strong>
+          <p>+212 6 XX XX XX XX</p>
+        </div>
+        <div>
+          <strong>Site web</strong>
+          <p>https://www.teraconsulting.ma</p>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <form action="#" method="POST">
+          <h3>Envoyez-nous votre demande</h3>
+
+          <div class="form-group">
+            <label for="nom">Nom et prénom</label>
+            <input type="text" id="nom" name="nom" required placeholder="Votre nom complet" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="exemple@domaine.com" />
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" placeholder="WhatsApp +212 ..." />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service concerné</label>
+            <select id="service" name="service">
+              <option value="marketing digital">Marketing digital</option>
+              <option value="stratégie marketing">Stratégie marketing</option>
+              <option value="branding">Branding</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Expliquez-nous votre projet ou votre demande…"></textarea>
+          </div>
+
+          <button type="submit">Envoyer la demande</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 TERA Consulting – Tous droits réservés</p>
+    <p>
+      <a href="https://www.teraconsulting.ma/login">Connexion espace client</a> |
+      <a href="#contact">Contact</a>
+    </p>
+  </footer>
+</body>
+</html>
