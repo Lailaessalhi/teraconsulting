@@ -1,168 +1,332 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>TERA Consulting - Consulting Marketing</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>TERA Consulting - Marketing Digital Maroc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Ton CSS existant + NOUVEAU CSS pour newsletter et consentement */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f9fa; color: #2c3e50; line-height: 1.6; }
-    header { background: #2c3e50; color: #fff; padding: 1.5rem; text-align: center; }
-    header h1 { font-size: 2rem; margin-bottom: 0.3rem; }
-    nav { margin-top: 1rem; }
-    nav a { color: #fff; margin: 0 1rem; text-decoration: none; font-weight: 500; font-size: 1rem; }
-    nav a:hover { text-decoration: underline; }
-    main { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
-    .section { margin-bottom: 3rem; }
-    .section h2 { font-size: 1.6rem; margin-bottom: 1rem; color: #2c3e50; }
-    
-    /* NOUVEAU : Newsletter section */
-    .newsletter-section {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      padding: 2.5rem 2rem;
-      border-radius: 15px;
-      text-align: center;
-      margin: 3rem 0;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      line-height: 1.6; 
+      color: #333; 
+      overflow-x: hidden;
     }
-    .newsletter-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-    .newsletter-form { max-width: 500px; margin: 0 auto; }
-    .newsletter-form input[type="email"] {
-      width: 70%; padding: 0.8rem; border: none; border-radius: 25px 0 0 25px;
-      font-size: 1rem; padding-left: 1rem;
+    
+    /* HEADER MODERNE */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff15"><polygon points="0,100 1000,0 1000,100"/></svg>');
+      background-size: cover;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    .hero h1 { 
+      font-size: clamp(2.5rem, 5vw, 4rem); 
+      font-weight: 700; 
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95; }
+    
+    /* NAVIGATION */
+    nav {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      padding: 1rem 0;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    nav ul {
+      list-style: none; display: flex; justify-content: center; gap: 2rem;
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    }
+    nav a {
+      color: #333; text-decoration: none; font-weight: 500;
+      transition: all 0.3s; padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+    nav a:hover { background: #667eea; color: white; transform: translateY(-2px); }
+    
+    /* SECTIONS */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 80px 0; }
+    
+    /* SERVICES CARDS */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .service-card {
+      background: white; padding: 2.5rem 2rem; border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      text-align: center; transition: all 0.4s;
+      border-top: 4px solid transparent;
+    }
+    .service-card:hover {
+      transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      border-top-color: #667eea;
+    }
+    .service-card i { font-size: 3rem; color: #667eea; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: #333; }
+    
+    /* NEWSLETTER */
+    .newsletter {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      padding: 4rem 2rem; text-align: center; border-radius: 20px;
+      margin: 4rem 0; color: white;
+    }
+    .newsletter h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .newsletter-form {
+      display: flex; max-width: 500px; margin: 2rem auto 0;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .newsletter-form input {
+      flex: 1; padding: 1rem 1.5rem; border: none; border-radius: 50px;
+      font-size: 1.1rem; min-width: 250px;
     }
     .newsletter-form button {
-      width: 30%; padding: 0.8rem; background: #fff; color: #2c3e50;
-      border: none; border-radius: 0 25px 25px 0; font-weight: bold;
-      cursor: pointer; font-size: 1rem;
+      background: white; color: #f5576c; border: none; padding: 1rem 2rem;
+      border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+      cursor: pointer; transition: all 0.3s; white-space: nowrap;
     }
-    .newsletter-form button:hover { background: #f8f9fa; }
+    .newsletter-form button:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
     
-    /* Consentement cookies */
-    #cookie-banner {
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    
+    .contact-info { background: #f8f9fa; padding: 3rem; border-radius: 20px; }
+    .contact-item {
+      display: flex; align-items: center; margin-bottom: 2rem; gap: 1rem;
+    }
+    .contact-item i { font-size: 1.8rem; color: #667eea; width: 50px; }
+    .contact-item a { color: #333; text-decoration: none; font-size: 1.1rem; }
+    
+    .contact-form {
+      background: white; padding: 3rem; border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #333; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 1rem 1.2rem; border: 2px solid #e9ecef;
+      border-radius: 12px; font-size: 1rem; transition: border-color 0.3s;
+      font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white; border: none; padding: 1.2rem 3rem; border-radius: 50px;
+      font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%;
+      transition: all 0.3s; box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(102,126,234,0.4); }
+    
+    /* FOOTER */
+    footer {
+      background: #1a1a2e; color: white; text-align: center; padding: 3rem 2rem 2rem;
+    }
+    .footer-links { margin: 1rem 0; }
+    .footer-links a { color: #667eea; margin: 0 1rem; text-decoration: none; }
+    
+    /* COOKIES MODERNE */
+    .cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0;
-      background: #2c3e50; color: #fff; padding: 1.5rem;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-      z-index: 1000; transform: translateY(100%); transition: transform 0.3s;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white; padding: 1.5rem 2rem; box-shadow: 0 -5px 30px rgba(0,0,0,0.3);
+      z-index: 1000; transform: translateY(100%); transition: all 0.4s ease;
     }
-    #cookie-banner.show { transform: translateY(0); }
-    .cookie-buttons { margin-top: 1rem; }
-    .cookie-buttons button {
-      margin: 0 0.5rem; padding: 0.5rem 1.5rem;
-      border: none; border-radius: 5px; cursor: pointer;
-      font-weight: 500;
+    .cookie-banner.show { transform: translateY(0); }
+    .cookie-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+    .cookie-btn {
+      padding: 0.7rem 1.5rem; border: none; border-radius: 25px;
+      font-weight: 600; cursor: pointer; transition: all 0.3s;
     }
-    .accept-all { background: #27ae60; color: #fff; }
-    .reject-all { background: #e74c3c; color: #fff; }
-    .manage { background: transparent; color: #fff; border: 1px solid #fff; }
+    .accept-btn { background: rgba(255,255,255,0.2); color: white; }
+    .accept-btn:hover { background: white; }
+    .reject-btn { background: rgba(255,255,255,0.1); color: white; }
     
-    /* Téléphone cliquable */
-    .tel-link { color: #3498db; text-decoration: none; font-weight: bold; }
-    .tel-link:hover { text-decoration: underline; }
-    
-    footer { text-align: center; margin-top: 3rem; padding: 2rem 1rem; background: #2c3e50; color: #fff; }
-    .form-container { background: #fff; padding: 1.8rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    /* Reste du CSS existant... */
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { padding: 80px 0 60px; }
+      nav ul { flex-direction: column; gap: 1rem; padding: 1rem; }
+      .container { padding: 0 1rem; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+  
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1><i class="fas fa-rocket"></i> TERA Consulting</h1>
+      <p>Boostez votre croissance avec nos stratégies marketing digitales sur mesure</p>
+    </div>
+  </section>
 
-  <!-- Bannière de consentement cookies (NOUVEAU) -->
-  <div id="cookie-banner">
-    <p><strong>🍪 Cookies & Vie privée</strong><br>
-    Ce site utilise des cookies pour améliorer votre expérience. <a href="#" style="color: #3498db;">En savoir plus</a></p>
-    <div class="cookie-buttons">
-      <button onclick="acceptCookies()" class="accept-all">Accepter tout</button>
-      <button onclick="rejectCookies()" class="reject-all">Refuser</button>
-      <button onclick="manageCookies()" class="manage">Gérer</button>
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="#apropos"><i class="fas fa-info-circle"></i> À propos</a></li>
+      <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a href="#newsletter"><i class="fas fa-envelope"></i> Newsletter</a></li>
+      <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #333;">Nos Expertises</h2>
+      <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 3rem;">
+        Solutions marketing complètes pour transformer vos idées en résultats concrets
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Stratégie Marketing</h3>
+          <p>Plan d'action complet pour booster votre visibilité et vos ventes</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Marketing Digital</h3>
+          <p>SEO, réseaux sociaux, publicité en ligne optimisée ROI</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-search"></i>
+          <h3>Études de Marché</h3>
+          <p>Analyse approfondie de vos concurrents et opportunités</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter" class="newsletter">
+    <div class="container">
+      <h2><i class="fas fa-newsletter"></i> Rejoignez 500+ clients satisfaits</h2>
+      <p>Conseils marketing exclusifs, études de cas, tendances du secteur</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre email professionnel" required>
+        <button type="submit"><i class="fas fa-arrow-right"></i> S'inscrire</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Contactez-nous</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</h3>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+212661234567">+212 6 61 23 45 67</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:contact@teraconsulting.ma">contact@teraconsulting.ma</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-globe"></i>
+            <a href="#">www.teraconsulting.ma</a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label>Nom complet</label>
+              <input type="text" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" required>
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="tel">
+            </div>
+            <div class="form-group">
+              <label>Service</label>
+              <select>
+                <option>Marketing Digital</option>
+                <option>Stratégie</option>
+                <option>Études de Marché</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Envoyer le message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p><strong>TERA Consulting</strong> © 2026 - Tous droits réservés</p>
+      <div class="footer-links">
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
+        <a href="#">Espace client</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- COOKIES BANNER -->
+  <div id="cookieBanner" class="cookie-banner">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <p><strong>🍪 Cookies & Confidentialité</strong></p>
+      <p>Nous utilisons des cookies pour améliorer votre expérience. <a href="#" style="color: rgba(255,255,255,0.8);">En savoir plus</a></p>
+      <div class="cookie-buttons">
+        <button class="cookie-btn accept-btn" onclick="acceptCookies()">Accepter tout</button>
+        <button class="cookie-btn reject-btn" onclick="rejectCookies()">Refuser</button>
+      </div>
     </div>
   </div>
 
-  <header>
-    <h1>TERA Consulting</h1>
-    <p>Consulting marketing pour PME & start-ups</p>
-    <nav>
-      <a href="#apropos">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <a href="https://www.teraconsulting.ma/login">Espace client</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Contenu existant... -->
-    <section id="apropos" class="section">
-      <h2>À propos de TERA Consulting</h2>
-      <p>TERA Consulting est un cabinet de <strong>consulting marketing</strong> spécialisé dans l’accompagnement des PME et start-ups marocaines et internationales.</p>
-    </section>
-
-    <!-- NOUVEAU : Section Newsletter -->
-    <section class="newsletter-section">
-      <h3>📧 Inscrivez-vous à notre Newsletter</h3>
-      <p>Recevez nos conseils marketing, études de cas et actualités exclusives</p>
-      <form class="newsletter-form" action="#" method="POST">
-        <input type="email" placeholder="Votre email" required />
-        <button type="submit">S'inscrire</button>
-      </form>
-    </section>
-
-    <!-- Formulaire contact existant... -->
-    <section id="contact" class="section">
-      <h2>Contactez-nous</h2>
-      <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-        <div style="flex:1;">
-          <strong>📞 Appeler</strong><br>
-          <a href="tel:+2126XXXXXXX" class="tel-link">+212 6 XX XX XX XX</a>
-        </div>
-        <div style="flex:1;">
-          <strong>✉️ Email</strong><br>
-          contact@teraconsulting.ma
-        </div>
-      </div>
-      
-      <!-- Formulaire contact (inchangé) -->
-      <div class="form-container">
-        <form action="#" method="POST">
-          <!-- Champs existants... -->
-          <button type="submit">Envoyer</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 TERA Consulting – Tous droits réservés</p>
-    <p>
-      <a href="https://www.teraconsulting.ma/login">Espace client</a> |
-      <a href="#contact">Contact</a> |
-      <strong>Politique de confidentialité</strong>
-    </p>
-  </footer>
-
-  <!-- JavaScript pour cookies (NOUVEAU) -->
   <script>
-    // Bannière cookies
-    window.onload = function() {
-      if (!localStorage.getItem('cookiesAccepted')) {
-        document.getElementById('cookie-banner').classList.add('show');
-      }
-    };
-    
+    // Cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+      setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 2000);
+    }
     function acceptCookies() {
       localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookie-banner').style.display = 'none';
+      document.getElementById('cookieBanner').style.display = 'none';
     }
-    
     function rejectCookies() {
       localStorage.setItem('cookiesAccepted', 'false');
-      document.getElementById('cookie-banner').style.display = 'none';
+      document.getElementById('cookieBanner').style.display = 'none';
     }
     
-    function manageCookies() {
-      alert('Gestion des cookies : Analytique, Marketing, Fonctionnels');
-    }
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
   </script>
-
 </body>
 </html>
